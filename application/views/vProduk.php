@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link " href="#" >Home</a>
+                            <a class="nav-link " href="<?= base_url('')?>" >Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-warning" href="#">Produk</a>

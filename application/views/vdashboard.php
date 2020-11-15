@@ -38,9 +38,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Keranjang</a>
                         </li>
+                        <?php if (($this->session->userdata('role'))) {  ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $user['name']; ?></a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                        <?php }else{ ?>
+                        <?php  ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Akun</a>
+                            <a class="nav-link" href="<?= base_url('auth')?>">Login</a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
@@ -52,7 +65,7 @@
                 <h2>Sepatu Mahal</h2>
                 <h3>Jangan Dibeli</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, quidem!</p>
-                <a href="#">Mulai Belanja</a>
+                <a href="<?= base_url('produk')?>">Mulai Belanja</a>
             </div>
             <div class="col-12 col-lg-8">
                 <img src="<?= base_url('assets/dashboard/img/mainbenner.png')?>" alt="Team process banner">
