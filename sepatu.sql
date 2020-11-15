@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `invoice`
 --
 
+create database sepatu;
+
 CREATE TABLE `invoice` (
   `invoice_id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
