@@ -35,10 +35,45 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url('produk')?>">Produk</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Keranjang</a>
-                        </li>
+
                         <?php if (($this->session->userdata('role'))) {  ?>
+
+                            <?php 
+                            $keranjang = $this->cart->contents();
+                            $items = 0;
+                            foreach ($keranjang as $key => $value) {
+                                $items = $items + $value['qty'];
+                            }
+                            ?>
+                            <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Keranjang
+                            <span class="badge badge-danger badge-counter"><?= $items ?></span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="container-fluid">
+                                    <div class="dropdown-list">
+                                        <span class="m-1" style="font-size: 12px;">Keranjang Belanja</span>
+                                    </div>
+                                    <?php 
+                                        foreach ($keranjang as $key => $value) { 
+                                        $produk = $this->M_produk->detailProduk($value['id']);
+                                    ?>
+                                    <div class="text-truncate"><?= $value['name'] ?></div>
+                                    <div class="small">
+                                        <span class="text-gray-600"><?= $value['qty'] ?> x <?= number_format($value['price'],0) ?></span>
+                                        <span class="font-weight-bold">= <?= $this->cart->format_number($value['subtotal']); ?></span>
+                                    </div>
+
+                                    <?php }  ?>
+
+                                    <div class="dropdown-divider mt-n-3"></div>
+                                    <a class="dropdown-item" href="<?= base_url('keranjang')?>">Lihat keranjang</a>
+                                </div>
+                            </div>
+                            
+                            </li>
+
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $user['name']; ?></a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

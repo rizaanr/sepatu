@@ -16,7 +16,7 @@
     <div class="container">
         <header class="head my-3">
             <nav class="navbar navbar-expand-lg navbar-light head__custom-nav">
-                <a class="navbar-brand d-flex align-items-center" href="#">
+                <a class="navbar-brand d-flex align-items-center" href="<?= base_url('')?>">
                     <img src="<?= base_url('assets/dashboard/img/logo.png')?>" alt="website logo">
                     <span>Laris Shop</span>
                 </a>
@@ -26,17 +26,30 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link " href="#" >Home</a>
+                            <a class="nav-link " href="<?= base_url('')?>" >Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-warning" href="#">Produk</a>
+                            <a class="nav-link text-warning" href="<?= base_url('produk')?>">Produk</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Keranjang</a>
                         </li>
+                        <?php if (($this->session->userdata('role'))) {  ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $user['name']; ?></a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= base_url('auth/logout')?>">Logout</a>
+                                </div>
+                            </li>
+                        <?php }else{ ?>
+                        <?php  ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Akun</a>
+                            <a class="nav-link" href="<?= base_url('auth')?>">Login</a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
