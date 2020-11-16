@@ -52,9 +52,7 @@ class keranjang extends CI_Controller {
 
         ];
 
-        $this->load->view('templates/pubHead', $data);
         $this->load->view('user/checkout', $data);
-        $this->load->view('templates/pubFoot');
     }
 
     public function prosespesanan()

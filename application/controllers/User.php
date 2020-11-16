@@ -7,7 +7,7 @@ class User extends CI_Controller {
     {
         parent::__construct();
         $this->load->model("m_admin");
-        cekLogin();
+        // cekLogin();
     }
 
 
@@ -31,8 +31,6 @@ class User extends CI_Controller {
             'user' => $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array()
 
         ];
-
-       
         
         $this->load->view('templates/pubHead', $data);
         $this->load->view('user/addProduk', $data);
