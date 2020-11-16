@@ -18,9 +18,7 @@ class keranjang extends CI_Controller {
 
         ];
         
-        $this->load->view('templates/pubHead', $data);
         $this->load->view('user/datakeranjang', $data);
-        $this->load->view('templates/pubFoot');
     }
 
     public function delete($rowid)
