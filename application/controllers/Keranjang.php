@@ -46,7 +46,7 @@ class keranjang extends CI_Controller {
     {
         $data = [
             'title' => 'Checkout',
-            'ktg' => $this->m_produk->kategori(),
+            'ktg' => $this->M_produk->kategori(),
             'kurir' => $this->m_kurir->getKurir(),
             'user' => $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array()
 
