@@ -20,7 +20,22 @@ class Produk extends CI_Controller {
             'produk' => $this->M_produk->detailProduk($id),
         ];
 		// var_dump($data);
-        $this->load->view('detailProduk', $data);
-    }
+        $this->load->view('vdetailProduk', $data);
+	}
+	
+	public function tambahKeranjang()
+	{
+        
+        $redirect_page = $this->input->post('redirect_page');
+		$data = array(
+			'id'      => $this->input->post('id'),
+			'qty'     => $this->input->post('qty'),
+			'price'   => $this->input->post('price'),
+			'name'    => $this->input->post('name'),
+		);
+		
+        $this->cart->insert($data);
+        redirect($redirect_page, 'refresh');
+	}
 }
 
